@@ -1,24 +1,24 @@
 <?php
-    if ($_POST["login"] && $_POST["oldpw"] != "" && $_POST["oldpw"] != "" && $_POST["submit"] == "OK") {
-        $users_db = unserialize(file_get_contents("../private/passwd"));
-        $flag = false;
-        foreach ($users_db as $key => $user) {
-            if($user["login"] == $_POST["login"] && $user["passwd"] == password_hash($_POST["oldpw"], PASSWORD_DEFAULT)) {
-                $user["passwd"] == password_hash($_POST["passwd"], PASSWORD_DEFAULT);
-                $flag = true;
+    if ($_POST['login'] && $_POST['oldpw'] && $_POST['newpw'] && $_POST['submit'] && $_POST['submit'] === "OK") {
+        $account = unserialize(file_get_contents('../private/passwd'));
+        if ($account) {
+            $exist = 0;
+            foreach ($account as $k => $v) {
+                if ($v['login'] === $_POST['login'] && $v['passwd'] === hash('whirlpool', $_POST['oldpw'])) {
+                    $exist = 1;
+                    $account[$k]['passwd'] =  hash('whirlpool', $_POST['newpw']);
+                }
             }
-        }
-        if ($flag == true) {
-            file_put_contents("../private/passwd", serialize($users_db));
-            echo "OK\n";
-        }
-        else {
+            if ($exist) {
+                file_put_contents('../private/passwd', serialize($account));
+                echo "OK\n";
+            } else {
+                echo "ERROR\n";
+            }
+        } else {
             echo "ERROR\n";
-            return ;
         }
-    }
-    else {
+    } else {
         echo "ERROR\n";
-        return ;
     }
 ?>

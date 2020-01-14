@@ -1,21 +1,29 @@
 <?php
-    if($_POST["login"] && $_POST["passwd"] != "" && $_POST["submit"] == "OK" ) {
-        if (!file_exists("../private")) {
-            mkdir ("../private");
+    if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] && $_POST['submit'] === "OK") {
+        if (!file_exists('../private')) {
+            mkdir("../private");
         }
-        $users_db = unserialize(file_get_contents("../private/passwd"));
-        foreach ($users_db as $key => $user) {
-            if($user["login"] == $_POST["login"]) {
-                echo "ERROR\n";
-                return ;
+        if (!file_exists('../private/passwd')) {
+            file_put_contents('../private/passwd', null);
+        }
+        $exist = 0;
+        $account = unserialize(file_get_contents('../private/passwd'));
+        if ($account) {
+            foreach ($account as $k => $v) {
+                if ($v['login'] === $_POST['login'])
+                    $exist = 1;
             }
         }
-        $users_db[] = array("login" => $_POST["login"], "passwd" => password_hash($_POST["passwd"], PASSWORD_DEFAULT));
-        file_put_contents("../private/passwd", serialize($users_db));
-        echo "OK\n";
-    }
-    else {
+        if ($exist) {
+            echo "ERROR\n";
+        } else {
+            $tmp['login'] = $_POST['login'];
+            $tmp['passwd'] = hash('whirlpool', $_POST['passwd']);
+            $account[] = $tmp;
+            file_put_contents('../private/passwd', serialize($account));
+            echo "OK\n";
+        }
+    } else {
         echo "ERROR\n";
-        return ;
     }
 ?>
