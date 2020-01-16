@@ -1,9 +1,8 @@
 #!usr/bin/php
-
 <?php
 	$file = fopen("/var/run/utmpx", 'rb');
 	fseek($file, 1256);
-	date_default_timezone_set("Belgium/Brussels");
+	date_default_timezone_set("Europe/Brussels");
 	while (!feof($file))
 	{
 		$data = fread($file, 628);
