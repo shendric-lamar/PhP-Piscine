@@ -1,7 +1,7 @@
 # PhP-Piscine, Brussels, Coding School 19.
 
 Scores:
-Day00: 90/100
+Day00: 90/100 "\n"
 Day01: 100/100
 Day02: 60/100
 Day03: 100/100
