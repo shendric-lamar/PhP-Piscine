@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+		#calc-box
+		{
+		    position: relative;
+		    margin: 5% auto;
+		    height: 230px;
+		    width: 300px;
+		    background: #fff;
+		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+		    border-radius: 10px;
+		}
+
+		.left {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			margin-left: 80px;
+			border-top-style: hidden;
+			border-right-style: hidden;
+			border-left-style: hidden;
+		}
+		.right {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			margin-left: 80px;
+			border-top-style: hidden;
+			border-right-style: hidden;
+			border-left-style: hidden;
+		}
+
+		.submit {
+			margin-left: 0px;
+		    margin-bottom: 20px;
+		    width: 220px;
+		    height: 32px;
+		    border: none;
+		    border-radius: 2px;
+		    color: #fff;
+		    font-weight: 500;
+		    text-transform: uppercase;
+		    transition: 0.2s ease;
+		    cursor: pointer;
+		    background-color: #4d77e2;
+			margin-top: 20px;
+			margin-left: 40px;
+		}
+
+		.select {
+			margin-left: 0px;
+		    margin-bottom: 0px;
+		    width: 220px;
+		    height: 32px;
+		    border: none;
+		    border-radius: 2px;
+		    color: #fff;
+		    font-weight: 500;
+		    text-transform: uppercase;
+		    transition: 0.2s ease;
+		    cursor: pointer;
+		    background-color: #4d77e2;
+			margin-top: 20px;
+			margin-left: 40px;
+		}
+
+		*:focus {
+			outline: none;
+		}
+	</style>
+	<script>
+		var left;
+		var right;
+		var op;
+		var calc;
+
+		window.onload = function () {
+			calc = document.querySelector(".calc");
+			left = document.querySelector(".left");
+			right = document.querySelector(".right");
+			select = document.querySelector(".select");
+			calc.addEventListener("submit", calculate);
+		}
+
+		function valid(nbr1, nbr2) {
+			if (Number.isInteger(nbr1) && Number.isInteger(nbr2) && nbr1 >= 0 && nbr2 >= 0)
+				return (true);
+			return (false)
+		}
+
+		function calculate() {
+			var nbr1 = Number(left.value);
+			var nbr2 = Number(right.value);
+			var op = select.value;
+			if (valid(nbr1, nbr2) == true) {
+				switch(op) {
+					case ("-"):
+						result(nbr1 - nbr2);
+						break;
+					case ("+"):
+						result(nbr1 + nbr2);
+						break;
+					case ("*"):
+						result(nbr1 * nbr2);
+						break;
+					case ("/"):
+						if (nbr2 == 0) {
+							alert("It's over 9000!");
+							break;
+						}
+						result(nbr1 / nbr2);
+						break;
+					case ("%"):
+						if (nbr2 == 0) {
+							alert("It's over 9000!");
+							break;
+						}
+						result(nbr1 % nbr2);
+						break;
+				}
+			}
+			else {
+				alert("Error :(");
+			}
+		}
+
+		function result(res) {
+			console.log(res);
+			alert(res);
+		}
+
+		function useMe() {
+			alert("Please, use me..");
+		}
+
+		setInterval(function(){
+			useMe()}, 30000);
+	</script>
+</head>
+	<body>
+		<div id="calc-box">
+			<form class="calc" action="calc.html" method="post">
+				<input type="text" class="left" value="">
+				<br>
+				<select class="select">
+					<option type="radio" name="subtract" value="-">-</option>
+					<option type="radio" name="add" value="+">+</option>
+					<option type="radio" name="multiply" value="*">*</option>
+					<option type="radio" name="divide" value="/">/</option>
+					<option type="radio" name="modulo" value="%">%</option>
+				</select>
+				<br>
+				<input type="text" class="right" value="">
+				<br>
+				<input class="submit" type="submit" name="submit" value="Try me!">
+			</form>
+		</div>
+	</body>
+</html>

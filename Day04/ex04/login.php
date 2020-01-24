@@ -3,10 +3,10 @@
 
     session_start();
 
-    if (!($_POST['login'] && $_POST['passwd'] && auth($_POST['login'], $_POST['passwd']))) {
+    if (!$_POST['login'] || !$_POST['passwd'] || !auth($_POST['login'], $_POST['passwd'])) {
         $_SESSION['loggued_on_user'] = "";
         header('Location: index.html');
-        echo "ERROR\n";
+		echo "ERROR\n";
     } else {
         $_SESSION['loggued_on_user'] = $_POST['login'];
         ?>

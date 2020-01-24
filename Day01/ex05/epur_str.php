@@ -1,10 +1,12 @@
-#!usr/bin/env php
 <?php
-if ($arg = 1)
-{
-	$str = trim($argv[1]);
-	$str = preg_replace("/ +/", " ", $str);
-	if ($str)
-		echo ("$str\n");
-}
+	if ($arg = 1) {
+		$str = trim($argv[1]);
+		$str = preg_replace('!\s+!', ' ', $str);
+		if ($str) {
+			echo ("$str\n");
+		}
+	}
+	else {
+		echo ("error\n");
+	}
 ?>

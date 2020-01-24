@@ -1,0 +1,93 @@
+.block {
+	text-align: center;
+}
+.header {
+	padding: 10px;
+	display: inline-block;
+}
+.header img{
+	height: 50px;
+	width: auto;
+}
+h1 {
+	font-family: Trebuchet MS;
+	text-align: center;
+	font-weight: bold;
+}
+h2 {
+	font-family: Trebuchet MS;
+	text-align: center;
+	font-size: 50px;
+}
+h3 {
+	font-family: Trebuchet MS;
+	text-align: center;
+	font-size: 15px;
+	line-height: 50%;
+}
+table {
+	border-collapse: seperate;
+	width: 100%;
+}
+td {
+	width: 80px;
+	height: 80px;
+	border: 1px solid black;
+}
+p {
+	font-size: 10px;
+	margin: 0;
+}
+#hidden {
+	border: none;
+}
+.type {
+	font-size: 20px;
+	text-align: center;
+}
+.nbr_weight {
+	margin-right: 2px;
+	text-align: right;
+}
+.nbr {
+	margin-left: 2px;
+	text-align: left;
+}
+.range {
+	text-align: center;
+}
+.number {
+	background-color: #ffffff;
+	border: none;
+}
+.non-metal {
+	background-color: #9cd99f;
+}
+.noble-gas {
+	background-color: #6a94a3;
+}
+.alkali-metal {
+	background-color: #eba254;
+}
+.alkali-e-metal{
+	background-color: #f0ee92;
+}
+.lanthanoid {
+	background-color: #edc4a6;
+}
+.actinoid{
+	background-color: #eda6a6;
+}
+.trans-metal
+{
+	background-color: #c2747f;
+}
+.p-trans-metal{
+	background-color: #90d4cf;
+}
+.metalloid{
+	background-color: #629c63;
+}
+.unknown {
+	background-color: #c4c3be;
+}

@@ -1,4 +1,3 @@
-#!usr/bin/php
 <?php
 	$file = fopen("/var/run/utmpx", 'rb');
 	fseek($file, 1256);

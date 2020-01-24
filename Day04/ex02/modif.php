@@ -4,7 +4,7 @@
 		if ($account) {
 			$exist = 0;
 			foreach ($account as $k => $v) {
-				if ($_POST["login"] == $v["login"] && hash('whirlpool', $_POST["oldpwd"]) == $v["passwd"]) {
+				if ($_POST["login"] == $v["login"] && hash('whirlpool', $_POST["oldpwd"]) == $v["passwd"] && $_POST["oldpwd"] != $_POST["newpwd"]) {
 					$exist = 1;
 					$account[$k]["passwd"] = hash('whirlpool', $_POST["newpwd"]);
 				}

@@ -1,0 +1,79 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+
+}
+
+li {
+
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #c2c0b6;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 99%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.Breadtop {
+	background-color: #e6d9a5;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.Breadbtm {
+	background-color: #e6d9a5;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.Salad {
+	background-color: #6fc95b;
+}
+
+.Cheese {
+	background-color: #e6ed58;
+}
+
+.Tomato {
+	background-color: #de7c59;
+}
+
+.Mayo {
+	background-color: #f0e8af;
+}

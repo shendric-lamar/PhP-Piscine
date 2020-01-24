@@ -1,5 +1,5 @@
 <?php
-	foreach($_GET as $key => $value) {
-        echo $key.': '.$value."\n"?></br><?php
-    }
+	foreach ($_GET as $key => $value) {
+		echo $key.": ".$value."\n";
+	}
 ?>

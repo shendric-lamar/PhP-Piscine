@@ -1,12 +1,10 @@
-#!usr/bin/php
 <?php
-function ft_is_sort($tab)
-{
-	$temp = $tab;
-	sort($tab);
-	if ($tab == $temp)
-		return (TRUE);
-	else
-		return (FALSE);
-}
+	function ft_is_sort($arr) {
+		$temp = $arr;
+		sort($arr);
+		if ($temp == $arr)
+			return (TRUE);
+		else
+			return (FALSE);
+	}
 ?>

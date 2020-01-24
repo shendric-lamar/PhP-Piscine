@@ -11,6 +11,7 @@
             }
         }
         if ($tab["action"] == "del" && $tab["name"] != '') {
-            setcookie($tab["name"], time() - 3600);
+            setcookie($tab["name"], "");
         }
     }
+?>
